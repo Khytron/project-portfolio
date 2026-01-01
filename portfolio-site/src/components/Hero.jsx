@@ -1,7 +1,16 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
+import TypeWriter from './TypeWriter';
 
 const Hero = () => {
+  const roles = [
+    "Full-Stack Developer",
+    "Game Developer", 
+    "Bot Creator",
+    "Problem Solver",
+    "CS Student"
+  ];
+
   return (
     <section className="hero">
       <motion.div
@@ -26,6 +35,16 @@ const Hero = () => {
         >
           Hi, I'm <span className="gradient-text">Khytron</span>
         </motion.h1>
+        
+        <motion.div
+          className="hero-role"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          <span className="role-prefix">I'm a </span>
+          <TypeWriter texts={roles} speed={80} deleteSpeed={40} pauseTime={2000} />
+        </motion.div>
         
         <motion.p
           className="hero-subtitle"
@@ -76,10 +95,10 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          <a href="https://github.com/Khytron" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Khytron" target="_blank" rel="noopener noreferrer" title="GitHub">
             <FaGithub />
           </a>
-          <a href="mailto:your.email@example.com">
+          <a href="mailto:your.email@example.com" title="Email">
             <FaEnvelope />
           </a>
         </motion.div>
@@ -90,6 +109,18 @@ const Hero = () => {
         <div className="gradient-orb orb-2"></div>
         <div className="gradient-orb orb-3"></div>
       </div>
+      
+      <motion.div 
+        className="scroll-indicator"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <div className="mouse">
+          <div className="wheel"></div>
+        </div>
+        <span>Scroll Down</span>
+      </motion.div>
     </section>
   );
 };

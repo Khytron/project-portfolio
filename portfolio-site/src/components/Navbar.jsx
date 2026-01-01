@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +13,14 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <motion.nav
@@ -27,10 +36,15 @@ const Navbar = () => {
           <span className="logo-bracket">/&gt;</span>
         </a>
         
-        <div className="nav-links">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
+        <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+        
+        <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
+          <a href="#about" onClick={closeMobileMenu}>About</a>
+          <a href="#projects" onClick={closeMobileMenu}>Projects</a>
+          <a href="#skills" onClick={closeMobileMenu}>Skills</a>
+          <a href="#contact" onClick={closeMobileMenu}>Contact</a>
           <a 
             href="https://github.com/Khytron" 
             target="_blank" 

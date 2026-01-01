@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaStar, FaCodeBranch, FaJava, FaPython, FaJs, FaGamepad, FaCode } from 'react-icons/fa';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaStar, FaCodeBranch, FaJava, FaPython, FaJs, FaGamepad, FaCode, FaFilter } from 'react-icons/fa';
 
 const projects = [
   {
@@ -10,6 +11,7 @@ const projects = [
     stars: 1,
     forks: 1,
     tags: ["Group Project", "Database", "OOP"],
+    category: "backend",
     featured: true
   },
   {
@@ -20,6 +22,7 @@ const projects = [
     stars: 0,
     forks: 0,
     tags: ["AI", "Bot", "WhatsApp API"],
+    category: "bot",
     featured: true
   },
   {
@@ -30,6 +33,7 @@ const projects = [
     stars: 0,
     forks: 0,
     tags: ["Game Dev", "2D", "Creative Mechanics"],
+    category: "game",
     featured: true
   },
   {
@@ -40,6 +44,7 @@ const projects = [
     stars: 0,
     forks: 1,
     tags: ["Game Dev", "Collaboration", "Unity"],
+    category: "game",
     featured: true
   },
   {
@@ -50,6 +55,7 @@ const projects = [
     stars: 0,
     forks: 0,
     tags: ["Automation", "Bot", "Telegram API"],
+    category: "bot",
     featured: false
   },
   {
@@ -60,6 +66,7 @@ const projects = [
     stars: 0,
     forks: 0,
     tags: ["Solo Project", "Java", "Learning"],
+    category: "backend",
     featured: false
   },
   {
@@ -70,6 +77,7 @@ const projects = [
     stars: 0,
     forks: 0,
     tags: ["Game Dev", "Puzzle", "Classic"],
+    category: "game",
     featured: false
   },
   {
@@ -80,6 +88,7 @@ const projects = [
     stars: 0,
     forks: 0,
     tags: ["React", "Frontend", "Learning"],
+    category: "frontend",
     featured: false
   }
 ];
@@ -100,9 +109,23 @@ const languageColors = {
   "C#": "#68217a"
 };
 
+const filters = [
+  { id: "all", label: "All Projects", icon: "🚀" },
+  { id: "game", label: "Games", icon: "🎮" },
+  { id: "bot", label: "Bots", icon: "🤖" },
+  { id: "frontend", label: "Frontend", icon: "🎨" },
+  { id: "backend", label: "Backend", icon: "⚙️" }
+];
+
 const Projects = () => {
-  const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
+  const [activeFilter, setActiveFilter] = useState("all");
+  
+  const filteredProjects = activeFilter === "all" 
+    ? projects 
+    : projects.filter(p => p.category === activeFilter);
+  
+  const featuredProjects = filteredProjects.filter(p => p.featured);
+  const otherProjects = filteredProjects.filter(p => !p.featured);
 
   return (
     <section id="projects" className="projects">
@@ -117,89 +140,142 @@ const Projects = () => {
         <p>A showcase of my best work and learning journey</p>
       </motion.div>
 
-      <div className="projects-grid featured">
-        {featuredProjects.map((project, index) => (
-          <motion.div
-            key={project.name}
-            className="project-card featured"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            whileHover={{ y: -10, transition: { duration: 0.2 } }}
-          >
-            <div className="project-header">
-              <div className="language-icon" style={{ color: languageColors[project.language] }}>
-                {languageIcons[project.language]}
-              </div>
-              <div className="project-links">
-                <a href={project.html_url} target="_blank" rel="noopener noreferrer">
-                  <FaGithub />
-                </a>
-              </div>
-            </div>
-            
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
-            
-            <div className="project-tags">
-              {project.tags.map(tag => (
-                <span key={tag} className="tag">{tag}</span>
-              ))}
-            </div>
-            
-            <div className="project-footer">
-              <span className="language" style={{ color: languageColors[project.language] }}>
-                <span className="dot" style={{ backgroundColor: languageColors[project.language] }}></span>
-                {project.language}
-              </span>
-              <div className="stats">
-                {project.stars > 0 && (
-                  <span><FaStar /> {project.stars}</span>
-                )}
-                {project.forks > 0 && (
-                  <span><FaCodeBranch /> {project.forks}</span>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      <motion.h3
-        className="other-projects-title"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+      <motion.div 
+        className="filter-container"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ delay: 0.2, duration: 0.5 }}
       >
-        Other Projects
-      </motion.h3>
-
-      <div className="projects-grid other">
-        {otherProjects.map((project, index) => (
-          <motion.div
-            key={project.name}
-            className="project-card small"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.05, duration: 0.4 }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+        {filters.map((filter) => (
+          <motion.button
+            key={filter.id}
+            className={`filter-btn ${activeFilter === filter.id ? 'active' : ''}`}
+            onClick={() => setActiveFilter(filter.id)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <div className="project-header">
-              <h4>{project.name}</h4>
-              <a href={project.html_url} target="_blank" rel="noopener noreferrer">
-                <FaGithub />
-              </a>
-            </div>
-            <p>{project.description}</p>
-            <span className="language" style={{ color: languageColors[project.language] }}>
-              <span className="dot" style={{ backgroundColor: languageColors[project.language] }}></span>
-              {project.language}
-            </span>
-          </motion.div>
+            <span className="filter-icon">{filter.icon}</span>
+            <span className="filter-label">{filter.label}</span>
+          </motion.button>
         ))}
-      </div>
+      </motion.div>
+
+      <AnimatePresence mode="wait">
+        <motion.div 
+          key={activeFilter}
+          className="projects-grid featured"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+        >
+          {featuredProjects.map((project, index) => (
+            <motion.div
+              key={project.name}
+              className="project-card featured"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+              whileHover={{ y: -10, transition: { duration: 0.2 } }}
+              layout
+            >
+              <div className="project-header">
+                <div className="language-icon" style={{ color: languageColors[project.language] }}>
+                  {languageIcons[project.language]}
+                </div>
+                <div className="project-links">
+                  <a href={project.html_url} target="_blank" rel="noopener noreferrer">
+                    <FaGithub />
+                  </a>
+                </div>
+              </div>
+              
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+              
+              <div className="project-tags">
+                {project.tags.map(tag => (
+                  <span key={tag} className="tag">{tag}</span>
+                ))}
+              </div>
+              
+              <div className="project-footer">
+                <span className="language" style={{ color: languageColors[project.language] }}>
+                  <span className="dot" style={{ backgroundColor: languageColors[project.language] }}></span>
+                  {project.language}
+                </span>
+                <div className="stats">
+                  {project.stars > 0 && (
+                    <span><FaStar /> {project.stars}</span>
+                  )}
+                  {project.forks > 0 && (
+                    <span><FaCodeBranch /> {project.forks}</span>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
+
+      {otherProjects.length > 0 && (
+        <>
+          <motion.h3
+            className="other-projects-title"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            Other Projects
+          </motion.h3>
+
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={`other-${activeFilter}`}
+              className="projects-grid other"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {otherProjects.map((project, index) => (
+                <motion.div
+                  key={project.name}
+                  className="project-card small"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  layout
+                >
+                  <div className="project-header">
+                    <h4>{project.name}</h4>
+                    <a href={project.html_url} target="_blank" rel="noopener noreferrer">
+                      <FaGithub />
+                    </a>
+                  </div>
+                  <p>{project.description}</p>
+                  <span className="language" style={{ color: languageColors[project.language] }}>
+                    <span className="dot" style={{ backgroundColor: languageColors[project.language] }}></span>
+                    {project.language}
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </>
+      )}
+
+      {filteredProjects.length === 0 && (
+        <motion.div 
+          className="no-projects"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <p>No projects found in this category yet. Check back soon!</p>
+        </motion.div>
+      )}
     </section>
   );
 };
