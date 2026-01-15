@@ -70,11 +70,11 @@ const Hero = () => {
             <span className="stat-label">Projects</span>
           </div>
           <div className="stat">
-            <span className="stat-number">5+</span>
+            <span className="stat-number">6+</span>
             <span className="stat-label">Languages</span>
           </div>
           <div className="stat">
-            <span className="stat-number">2+</span>
+            <span className="stat-number">5+</span>
             <span className="stat-label">Years Coding</span>
           </div>
         </motion.div>

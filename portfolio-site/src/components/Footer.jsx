@@ -4,6 +4,11 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
+        <div className="logo footer-logo">
+          <span className="logo-bracket">&lt;/</span>
+          Khytron
+          <span className="logo-bracket">&gt;</span>
+        </div>
         <p>
           Built with <FaHeart className="heart" /> using <FaReact className="react-icon" /> React
         </p>

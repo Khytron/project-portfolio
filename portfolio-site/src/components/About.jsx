@@ -57,7 +57,7 @@ const About = () => {
             and has evolved into a dedicated pursuit of excellence in software development.
           </p>
           <p>
-            I specialize in <strong>Java, Python, JavaScript</strong>, and <strong>Game Development</strong> 
+            I specialize in <strong>Java, C++, Python, JavaScript</strong>, and <strong>Game Development</strong> 
             with Godot Engine. I enjoy building everything from automation bots to interactive games 
             to full-stack web applications.
           </p>
@@ -72,11 +72,11 @@ const About = () => {
               <span className="highlight-text">Projects Completed</span>
             </div>
             <div className="highlight">
-              <span className="highlight-number">5+</span>
+              <span className="highlight-number">6+</span>
               <span className="highlight-text">Programming Languages</span>
             </div>
             <div className="highlight">
-              <span className="highlight-number">2+</span>
+              <span className="highlight-number">5+</span>
               <span className="highlight-text">Years of Coding</span>
             </div>
           </div>

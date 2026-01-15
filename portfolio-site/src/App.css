@@ -657,6 +657,20 @@ body {
   align-items: center;
 }
 
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.footer-logo:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 .footer p {
   color: var(--text-secondary);
   font-size: 0.9rem;

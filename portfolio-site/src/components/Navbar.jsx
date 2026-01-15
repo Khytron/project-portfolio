@@ -33,7 +33,7 @@ const Navbar = () => {
         <a href="#" className="logo">
           <span className="logo-bracket">&lt;</span>
           Khytron
-          <span className="logo-bracket">/&gt;</span>
+          <span className="logo-bracket">&gt;</span>
         </a>
         
         <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
