@@ -1,16 +1,18 @@
 import { motion } from 'framer-motion';
-import { FaRobot, FaGamepad, FaDatabase, FaMobile, FaJava, FaPython, FaJs, FaCode, FaReact, FaNodeJs, FaGitAlt } from 'react-icons/fa';
+import { FaRobot, FaGamepad, FaDatabase, FaMobile, FaJava, FaPython, FaJs, FaCode, FaReact, FaNodeJs, FaGitAlt, FaMagic, FaTerminal } from 'react-icons/fa';
+import { SiCplusplus } from 'react-icons/si';
 
 const skillCategories = [
   {
     title: "Programming Languages",
     icon: "💻",
     skills: [
-      { name: "Java", icon: <FaJava />, level: 85, color: "#f89820" },
       { name: "Python", icon: <FaPython />, level: 80, color: "#3776ab" },
-      { name: "JavaScript", icon: <FaJs />, level: 75, color: "#f7df1e" },
-      { name: "C#", icon: <FaCode />, level: 70, color: "#68217a" },
-      { name: "GDScript", icon: <FaGamepad />, level: 75, color: "#478cbf" }
+      { name: "C#", icon: <FaCode />, level: 75, color: "#68217a" },
+      { name: "Java", icon: <FaJava />, level: 85, color: "#f89820" },
+      { name: "JavaScript", icon: <FaJs />, level: 70, color: "#f7df1e" },
+      { name: "C++", icon: <SiCplusplus />, level: 82, color: "#00599C" },
+      { name: "GDScript", icon: <FaGamepad />, level: 79, color: "#478cbf" }
     ]
   },
   {
@@ -21,13 +23,16 @@ const skillCategories = [
       { name: "Node.js", icon: <FaNodeJs />, level: 70, color: "#339933" },
       { name: "Git", icon: <FaGitAlt />, level: 80, color: "#f05032" },
       { name: "MySQL", icon: <FaDatabase />, level: 70, color: "#4479a1" },
-      { name: "Godot Engine", icon: <FaGamepad />, level: 75, color: "#478cbf" }
+      { name: "Godot Engine", icon: <FaGamepad />, level: 75, color: "#478cbf" },
+      { name: "AI-Driven CLI Development", icon: <FaTerminal />, level: 78, color: "#00b894" }
     ]
   },
   {
     title: "Specializations",
     icon: "🎯",
     skills: [
+      { name: "Prompt Engineering", icon: <FaMagic />, level: 83, color: "#fab1a0" },
+      { name: "Fullstack Development", icon: <FaCode />, level: 72, color: "#a29bfe" },
       { name: "Bot Development", icon: <FaRobot />, level: 80, color: "#00d4aa" },
       { name: "Game Development", icon: <FaGamepad />, level: 75, color: "#ff6b6b" },
       { name: "Database Design", icon: <FaDatabase />, level: 70, color: "#ffd93d" },
