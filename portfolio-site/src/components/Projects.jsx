@@ -17,7 +17,7 @@ const projects = [
   {
     name: "Interactive World Map",
     description: "An interactive world map application allowing users to explore countries and data visually.",
-    html_url: "https://github.com/Khytron/Interactive-World-Map",
+    html_url: "https://github.com/Khytron/Multimedia-Interactive-World-Map-Project",
     homepage: "https://khytron.github.io/Multimedia-Interactive-World-Map-Project/",
     language: "JavaScript",
     stars: 0,
@@ -53,6 +53,7 @@ const projects = [
     name: "Basic To-Do List with React",
     description: "A clean and functional to-do list application built to learn React fundamentals.",
     html_url: "https://github.com/Khytron/basic-to-do-list-with-react",
+    homepage: "https://khytron.github.io/basic-to-do-list-with-react/",
     language: "JavaScript",
     stars: 0,
     forks: 0,
@@ -107,7 +108,7 @@ const projects = [
   },
   {
     name: "Guestbook",
-    description: "A digital guestbook application allowing visitors to leave messages and comments.",
+    description: "The place where future contributors are born",
     html_url: "https://github.com/Khytron/guestbook",
     language: "JavaScript",
     stars: 0,
