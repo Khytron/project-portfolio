@@ -15,6 +15,17 @@ const projects = [
     featured: true
   },
   {
+    name: "Interactive World Map",
+    description: "An interactive world map application allowing users to explore countries and data visually.",
+    html_url: "https://github.com/Khytron/Interactive-World-Map",
+    language: "JavaScript",
+    stars: 0,
+    forks: 0,
+    tags: ["Frontend", "Visualization", "Interactive"],
+    category: "frontend",
+    featured: true
+  },
+  {
     name: "WhatsApp Gemini Image Editor Bot",
     description: "A WhatsApp bot powered by Gemini AI that can edit images through commands directly within the WhatsApp app.",
     html_url: "https://github.com/Khytron/whatsapp-gemini-image-editor-bot",
@@ -26,17 +37,6 @@ const projects = [
     featured: true
   },
   {
-    name: "Ninja-Line",
-    description: "A creative 2D Platformer game where players control a ninja by drawing paths - unique gameplay mechanics built with Godot Engine.",
-    html_url: "https://github.com/Khytron/Ninja-Line",
-    language: "GDScript",
-    stars: 0,
-    forks: 0,
-    tags: ["Game Dev", "2D", "Creative Mechanics"],
-    category: "game",
-    featured: true
-  },
-  {
     name: "Flappytron",
     description: "A collaborative twist on the classic Flappy Bird game, featuring unique gameplay elements and custom mechanics.",
     html_url: "https://github.com/Khytron/Flappytron",
@@ -44,6 +44,28 @@ const projects = [
     stars: 0,
     forks: 1,
     tags: ["Game Dev", "Collaboration", "Unity"],
+    category: "game",
+    featured: true
+  },
+  {
+    name: "Basic To-Do List with React",
+    description: "A clean and functional to-do list application built to learn React fundamentals.",
+    html_url: "https://github.com/Khytron/basic-to-do-list-with-react",
+    language: "JavaScript",
+    stars: 0,
+    forks: 0,
+    tags: ["React", "Frontend", "Learning"],
+    category: "frontend",
+    featured: true
+  },
+  {
+    name: "Ninja-Line",
+    description: "A creative 2D Platformer game where players control a ninja by drawing paths - unique gameplay mechanics built with Godot Engine.",
+    html_url: "https://github.com/Khytron/Ninja-Line",
+    language: "GDScript",
+    stars: 0,
+    forks: 0,
+    tags: ["Game Dev", "2D", "Creative Mechanics"],
     category: "game",
     featured: true
   },
@@ -59,17 +81,6 @@ const projects = [
     featured: false
   },
   {
-    name: "Store Management System (Solo)",
-    description: "An experimental solo version of the Store Management System, designed to test and expand Java programming skills.",
-    html_url: "https://github.com/Khytron/Store-Management-System-Solo",
-    language: "Java",
-    stars: 0,
-    forks: 0,
-    tags: ["Solo Project", "Java", "Learning"],
-    category: "backend",
-    featured: false
-  },
-  {
     name: "Minesweepertron",
     description: "A Minesweeper clone built with Godot Engine - classic puzzle game recreation with modern touches.",
     html_url: "https://github.com/Khytron/Minesweepertron",
@@ -81,13 +92,24 @@ const projects = [
     featured: false
   },
   {
-    name: "React To-Do List",
-    description: "A clean and functional to-do list application built to learn React fundamentals.",
-    html_url: "https://github.com/Khytron/basic-to-do-list-with-react",
+    name: "Store Management System (Solo)",
+    description: "An experimental solo version of the Store Management System, designed to test and expand Java programming skills.",
+    html_url: "https://github.com/Khytron/Store-Management-System-Solo",
+    language: "Java",
+    stars: 0,
+    forks: 0,
+    tags: ["Solo Project", "Java", "Learning"],
+    category: "backend",
+    featured: false
+  },
+  {
+    name: "Guestbook",
+    description: "A digital guestbook application allowing visitors to leave messages and comments.",
+    html_url: "https://github.com/Khytron/guestbook",
     language: "JavaScript",
     stars: 0,
     forks: 0,
-    tags: ["React", "Frontend", "Learning"],
+    tags: ["Frontend", "Interaction"],
     category: "frontend",
     featured: false
   }
