@@ -357,14 +357,27 @@ body {
   font-size: 2rem;
 }
 
+.project-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .project-links a {
   color: var(--text-secondary);
-  font-size: 1.25rem;
+  font-size: 1.8rem;
   transition: var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+.project-card.small .project-links a {
+  font-size: 1.4rem;
 }
 
 .project-links a:hover {
   color: var(--accent-primary);
+  transform: scale(1.1);
 }
 
 .project-card h3 {

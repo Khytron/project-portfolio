@@ -18,6 +18,7 @@ const projects = [
     name: "Interactive World Map",
     description: "An interactive world map application allowing users to explore countries and data visually.",
     html_url: "https://github.com/Khytron/Interactive-World-Map",
+    homepage: "https://khytron.github.io/Multimedia-Interactive-World-Map-Project/",
     language: "JavaScript",
     stars: 0,
     forks: 0,
@@ -40,6 +41,7 @@ const projects = [
     name: "Flappytron",
     description: "A collaborative twist on the classic Flappy Bird game, featuring unique gameplay elements and custom mechanics.",
     html_url: "https://github.com/Khytron/Flappytron",
+    homepage: "https://khytron.itch.io/flappytron",
     language: "C#",
     stars: 0,
     forks: 1,
@@ -62,6 +64,7 @@ const projects = [
     name: "Ninja-Line",
     description: "A creative 2D Platformer game where players control a ninja by drawing paths - unique gameplay mechanics built with Godot Engine.",
     html_url: "https://github.com/Khytron/Ninja-Line",
+    homepage: "https://khytron.itch.io/ninja-puzzle",
     language: "GDScript",
     stars: 0,
     forks: 0,
@@ -207,7 +210,12 @@ const Projects = () => {
                   {languageIcons[project.language]}
                 </div>
                 <div className="project-links">
-                  <a href={project.html_url} target="_blank" rel="noopener noreferrer">
+                  {project.homepage && (
+                    <a href={project.homepage} target="_blank" rel="noopener noreferrer" title="Live Demo">
+                      <FaExternalLinkAlt />
+                    </a>
+                  )}
+                  <a href={project.html_url} target="_blank" rel="noopener noreferrer" title="GitHub Repository">
                     <FaGithub />
                   </a>
                 </div>
@@ -273,9 +281,16 @@ const Projects = () => {
                 >
                   <div className="project-header">
                     <h4>{project.name}</h4>
-                    <a href={project.html_url} target="_blank" rel="noopener noreferrer">
-                      <FaGithub />
-                    </a>
+                    <div className="project-links">
+                      {project.homepage && (
+                        <a href={project.homepage} target="_blank" rel="noopener noreferrer" title="Live Demo">
+                          <FaExternalLinkAlt />
+                        </a>
+                      )}
+                      <a href={project.html_url} target="_blank" rel="noopener noreferrer" title="GitHub Repository">
+                        <FaGithub />
+                      </a>
+                    </div>
                   </div>
                   <p>{project.description}</p>
                   <span className="language" style={{ color: languageColors[project.language] }}>
